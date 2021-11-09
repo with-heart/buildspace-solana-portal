@@ -1,9 +1,17 @@
+import {Flex, Heading, Link, Text, VStack, HStack} from '@chakra-ui/react'
 import type {NextPage} from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <Flex
+      direction="column"
+      align="center"
+      justify="center"
+      w="100vw"
+      minH="100vh"
+    >
       <Head>
         <title>Solana GIF Portal</title>
         <meta
@@ -13,15 +21,27 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>Solana GIF Portal</h1>
-        <p>View your GIF collection in the metaverse ✨</p>
-      </main>
+      <VStack as="main">
+        <Heading as="h1">
+          <HStack>
+            <Image
+              src="/solana.svg"
+              alt="Solana logo"
+              width="35px"
+              height="35px"
+            />
+            <span>Solana GIF Portal</span>
+          </HStack>
+        </Heading>
+        <Text>View your GIF collection in the metaverse ✨</Text>
+      </VStack>
 
-      <footer>
-        <a href="https://twitter.com/_buildspace">built on @_buildspace</a>
-      </footer>
-    </div>
+      <Flex as="footer">
+        <Link href="https://twitter.com/_buildspace">
+          built on @_buildspace
+        </Link>
+      </Flex>
+    </Flex>
   )
 }
 
