@@ -1,9 +1,20 @@
-import {Flex, Heading, Link, Text, VStack, HStack} from '@chakra-ui/react'
+import {
+  Button,
+  Flex,
+  Heading,
+  HStack,
+  Link,
+  Text,
+  VStack,
+} from '@chakra-ui/react'
 import type {NextPage} from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import {useWallet} from '../hooks/use-wallet'
 
 const Home: NextPage = () => {
+  const {isConnected, connectWallet} = useWallet()
+
   return (
     <Flex
       direction="column"
@@ -34,6 +45,9 @@ const Home: NextPage = () => {
           </HStack>
         </Heading>
         <Text>View your GIF collection in the metaverse ✨</Text>
+        {!isConnected && (
+          <Button onClick={connectWallet}>Connect to Wallet</Button>
+        )}
       </VStack>
 
       <Flex
