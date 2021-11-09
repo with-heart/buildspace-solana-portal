@@ -36,7 +36,15 @@ const Home: NextPage = () => {
         <Text>View your GIF collection in the metaverse ✨</Text>
       </VStack>
 
-      <Flex as="footer">
+      <Flex
+        as="footer"
+        position="absolute"
+        bottom={0}
+        left={0}
+        w="100vw"
+        pb={12}
+        justify="center"
+      >
         <Link href="https://twitter.com/_buildspace">
           built on @_buildspace
         </Link>
