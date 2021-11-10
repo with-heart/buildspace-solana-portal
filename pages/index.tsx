@@ -22,6 +22,8 @@ const Home: NextPage = () => {
       justify="center"
       w="100vw"
       minH="100vh"
+      px={2}
+      py={3}
     >
       <Head>
         <title>Solana GIF Portal</title>
@@ -32,7 +34,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <VStack as="main">
+      <VStack as="main" spacing={4} w="full">
         <Heading as="h1">
           <HStack>
             <Image
@@ -44,7 +46,7 @@ const Home: NextPage = () => {
             <span>Solana GIF Portal</span>
           </HStack>
         </Heading>
-        <Text>View your GIF collection in the metaverse ✨</Text>
+        <Text align="center">View your GIF collection in the metaverse ✨</Text>
         {!isConnected && (
           <Button onClick={connectWallet}>Connect to Wallet</Button>
         )}
