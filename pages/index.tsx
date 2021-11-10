@@ -10,7 +10,12 @@ import {
 import type {NextPage} from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import {GifGrid} from '../components/gif-grid'
 import {useWallet} from '../hooks/use-wallet'
+
+const ConnectedContainer = () => {
+  return <GifGrid />
+}
 
 const Home: NextPage = () => {
   const {isConnected, connectWallet} = useWallet()
@@ -47,7 +52,9 @@ const Home: NextPage = () => {
           </HStack>
         </Heading>
         <Text align="center">View your GIF collection in the metaverse ✨</Text>
-        {!isConnected && (
+        {isConnected ? (
+          <ConnectedContainer />
+        ) : (
           <Button onClick={connectWallet}>Connect to Wallet</Button>
         )}
       </VStack>
